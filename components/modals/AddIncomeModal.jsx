@@ -5,15 +5,17 @@ import { currencyFormatter } from "@/lib/utils";
 
 // context
 import { financeContext } from "@/lib/store/finance-context";
-
-
+import { authContext } from "@/lib/store/auth-context";
 
 const AddIncomeModal = ({ show, onClose }) => {
   const amountRef = useRef();
   const descriptionRef = useRef();
   
-  // getting the contxt
+  // getting the context of financecontext
   const { income, addIncomeItem, removeIncomeItem } = useContext(financeContext);
+  
+  // getting the context of auth context
+  const { user } = useContext(authContext)
 
 
   // income handler functions
@@ -21,9 +23,11 @@ const AddIncomeModal = ({ show, onClose }) => {
     e.preventDefault();
 
     const newIncome = {
-      amount: amountRef.current.value,
+      // this + sign will convert this amount to a number tyope
+      amount: +amountRef.current.value,
       description: descriptionRef.current.value,
       createdAt: new Date(),
+      uid: user.uid,
     };
     
     try {
