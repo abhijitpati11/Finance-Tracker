@@ -6,7 +6,7 @@ function Modal({show, onClose, children}) {
       <div
         className="absolute top-0 left-0 w-full h-full transition-all duration-1000 z-10"
         style={{
-          transform: show ? "translate(0%)" : "translate(-200%)",
+          transform: show ? "translate(0%)" : "translate(+100%)",
         }}
       >
         <div className="container mx-auto max-w-2xl h-[80vh] overflow-y-auto rounded-3xl bg-slate-800 py-6 px-4">
