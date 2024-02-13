@@ -81,7 +81,7 @@ const Dashboard = () => {
 
     await addMonthlyDatabase(savingsDetails);
 
-    
+    alert('Monthly Data Added');
   }
   
   return (
