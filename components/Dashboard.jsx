@@ -16,6 +16,8 @@ import SignIn from "./SignIn";
 import ViewSavingsModal from "./modals/ViewSavingsModal";
 
 const Dashboard = () => {
+  // destructuring auth context
+  const { user } = useContext(authContext)
 
   // to show and hide income modal
   const [showedIncomeModal, setShowedIncomeModal] = useState(false);
@@ -28,8 +30,7 @@ const Dashboard = () => {
 
   // destructuring finance context
   const { income, expenses, addMonthlyDatabase } = useContext(financeContext);
-  // destructuring auth context
-  const { user } = useContext(authContext)
+  
 
   // current balance or net balace
   const [balance, setBalance] = useState(0);
@@ -84,7 +85,7 @@ const Dashboard = () => {
     alert('Monthly Data Added');
   }
   
-  return (
+    return (
     <>
       {/* Add income modal */}
       <AddIncomeModal show={showedIncomeModal} onClose={setShowedIncomeModal} />

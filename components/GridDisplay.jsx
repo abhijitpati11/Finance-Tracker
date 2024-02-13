@@ -1,10 +1,6 @@
-import { financeContext } from "@/lib/store/finance-context";
-import { useContext } from "react";
 import { LuIndianRupee } from "react-icons/lu";
 
-export const GridDisplay = ({ data, params }) => {
-
-  
+export const GridDisplay = ({ data }) => {
  
   return (
     <div className='flex justify-evenly pt-4 hover:cursor-pointer'>

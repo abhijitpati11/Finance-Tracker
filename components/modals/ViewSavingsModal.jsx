@@ -15,7 +15,6 @@ const ViewSavingsModal = ({ show, onClose }) => {
   "Savings",
  ]
   const { savings, removeSavingsData } = useContext(financeContext);
-  const { user } = useContext(authContext);
   // function to remove all monthly savings
   function removeMonthlySavings() {
    alert("Are you sure you want to delete this yearly data")
@@ -24,7 +23,6 @@ const ViewSavingsModal = ({ show, onClose }) => {
     removeSavingsData(i.id);
    })
   }
-
 
   return (
     <div>

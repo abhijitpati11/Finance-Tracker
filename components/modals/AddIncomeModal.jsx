@@ -8,15 +8,15 @@ import { financeContext } from "@/lib/store/finance-context";
 import { authContext } from "@/lib/store/auth-context";
 
 const AddIncomeModal = ({ show, onClose }) => {
+  // getting the context of auth context
+  const { user } = useContext(authContext)
+
   const amountRef = useRef();
   const descriptionRef = useRef();
   
   // getting the context of financecontext
   const { income, addIncomeItem, removeIncomeItem } = useContext(financeContext);
   
-  // getting the context of auth context
-  const { user } = useContext(authContext)
-
 
   // income handler functions
   const addIncomeHandler = async (e) => {
@@ -42,7 +42,6 @@ const AddIncomeModal = ({ show, onClose }) => {
 
   };
 
-  
 
   // delete income handler
   const deleteIncomeHandler = async (incomeId) => {
