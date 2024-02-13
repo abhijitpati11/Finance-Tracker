@@ -29,7 +29,7 @@ const Dashboard = () => {
   // destructuring finance context
   const { income, expenses, addMonthlyDatabase } = useContext(financeContext);
   // destructuring auth context
-  const { user, loading } = useContext(authContext)
+  const { user } = useContext(authContext)
 
   // current balance or net balace
   const [balance, setBalance] = useState(0);
@@ -49,7 +49,8 @@ const Dashboard = () => {
   if(!user) {
     return <SignIn />
   }
-
+  const { savings } = useContext(financeContext);
+  
   // handling end of the month
   async function finishMonth() {
     let netIncome = 0;
@@ -58,8 +59,8 @@ const Dashboard = () => {
       netIncome += value.amount;
     })
 
-    console.log('Income is - ', netIncome);
-    console.log('balance is - ', balance);
+    // console.log('Income is - ', netIncome);
+    // console.log('balance is - ', balance);
     const totalExpense = netIncome - balance;
     
     const date = new Date();
@@ -70,7 +71,17 @@ const Dashboard = () => {
       savings: balance,
       uid: user.uid,
     }
+    // savings.map((i) => {
+    //   if(i.month == savingsDetails.month) {
+    //     console.log('true')
+    //   }else {
+    //     console.log('false')
+    //   }
+    // })
+
     await addMonthlyDatabase(savingsDetails);
+
+    
   }
   
   return (
@@ -90,7 +101,7 @@ const Dashboard = () => {
             {balance<600 && balance>0 && 
             <small className="text-[15px] ml-2">Low Balance</small>}
             {balance<0 && 
-            <small className="text-[15px] ml-2">Insufficient Balance Stop Spending</small>}
+            <small className="text-[15px] ml-2">Insufficient Balance</small>}
           </h2>
         </section>
 
@@ -134,7 +145,6 @@ const Dashboard = () => {
             className="btn btn-primary hover:bg-green-500 w-full"
             onClick={finishMonth}
           >
-            
             {/* <HiCloudArrowUp /> */}
             That's All For This Month
           </button>

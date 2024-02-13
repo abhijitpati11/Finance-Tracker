@@ -1,6 +1,10 @@
+import { financeContext } from "@/lib/store/finance-context";
+import { useContext } from "react";
 import { LuIndianRupee } from "react-icons/lu";
 
 export const GridDisplay = ({ data, params }) => {
+
+  
  
   return (
     <div className='flex justify-evenly pt-4 hover:cursor-pointer'>
@@ -14,6 +18,7 @@ export const GridDisplay = ({ data, params }) => {
      <div className='btn border-b hover:border-green-700 flex items-center'>
      <LuIndianRupee />{data.savings}
      </div>
+     
     </div>
   )
 }
