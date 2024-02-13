@@ -32,6 +32,8 @@ const ViewSavingsModal = ({ show, onClose }) => {
           <div key={i.id}>
            
            <GridDisplay data={i} params={parameters} />
+           <GridDisplay data={i} params={parameters} />
+           <GridDisplay data={i} params={parameters} />
           </div>
          )
         })}
