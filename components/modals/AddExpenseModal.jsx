@@ -41,7 +41,6 @@ const AddExpenseModal = ({ show, onClose }) => {
     try {
       await addExpenseItem(selectedCategory, newExpense);
 
-      console.log(newExpense);
       setExpenseAmount("");
       setSlectedCategory(null);
     } catch (error) {
